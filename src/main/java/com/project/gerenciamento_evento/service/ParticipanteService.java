@@ -6,6 +6,7 @@ import com.project.gerenciamento_evento.entity.Inscricao;
 import com.project.gerenciamento_evento.entity.Pagamento;
 import com.project.gerenciamento_evento.entity.Participante;
 import com.project.gerenciamento_evento.repository.ParticipanteRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,16 @@ public class ParticipanteService {
     public List<Certificado> getCertificados(Long participanteId){
         Participante participante = findById(participanteId);
         return participante.getCertificados();
+    }
+
+    public Participante update(Long id, ParticipanteDTO dto){
+        Participante participante = participanteRepository.findById(id)
+                .orElseThrow(()-> new EntityNotFoundException("Participante não encontrado com o ID: " + id));
+
+        participante.setNome(dto.nome());
+        participante.setEmail(dto.email());
+        participante.setTelefone(dto.telefone());
+
+        return participanteRepository.save(participante);
     }
 }
