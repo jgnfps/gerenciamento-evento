@@ -23,7 +23,7 @@ public class Inscricao {
 
     @ManyToOne
     @JoinColumn(name = "participante_id")
-    private Participante participante;
+    private User participante;
 
     private LocalDate dataInscricao;
 }

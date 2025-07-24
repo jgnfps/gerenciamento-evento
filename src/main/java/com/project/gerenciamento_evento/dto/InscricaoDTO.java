@@ -1,4 +1,6 @@
 package com.project.gerenciamento_evento.dto;
 
-public record InscricaoDTO(Long participanteId) {
+import jakarta.validation.constraints.NotBlank;
+
+public record InscricaoDTO(@NotBlank(message = "O id é obrigatório") Long participanteId) {
 }

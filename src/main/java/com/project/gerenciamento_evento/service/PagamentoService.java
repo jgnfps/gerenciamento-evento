@@ -5,12 +5,9 @@ import com.project.gerenciamento_evento.dto.PagamentoCreateDTO;
 import com.project.gerenciamento_evento.dto.PagamentoDTO;
 import com.project.gerenciamento_evento.entity.Evento;
 import com.project.gerenciamento_evento.entity.Pagamento;
-import com.project.gerenciamento_evento.entity.Participante;
 import com.project.gerenciamento_evento.repository.Eventorepository;
 import com.project.gerenciamento_evento.repository.PagamentoRepository;
-import com.project.gerenciamento_evento.repository.ParticipanteRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PagamentoService {
 
-    @Autowired
+
     private final PagamentoRepository pagamentoRepository;
     private final Eventorepository eventorepository;
     private final ParticipanteRepository participanteRepository;
