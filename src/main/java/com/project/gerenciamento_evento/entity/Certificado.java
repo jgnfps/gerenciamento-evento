@@ -27,7 +27,7 @@ public class Certificado {
 
     @ManyToOne
     @JoinColumn(name = "participante_id")
-    private Participante participante;
+    private User participante;
 
     private LocalDateTime dataCertificado;
 }
