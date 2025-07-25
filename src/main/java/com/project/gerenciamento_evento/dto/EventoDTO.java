@@ -1,6 +1,7 @@
 package com.project.gerenciamento_evento.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
@@ -17,7 +18,7 @@ public record EventoDTO(
         @NotBlank(message = "o local é obrigatório")
         String local,
 
-        @NotBlank(message = "A data é obrigatória")
+        @NotNull(message = "A data é obrigatória")
         LocalDate dataEvento
 ) {
 }

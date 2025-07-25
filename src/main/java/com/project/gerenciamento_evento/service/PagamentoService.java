@@ -5,8 +5,10 @@ import com.project.gerenciamento_evento.dto.PagamentoCreateDTO;
 import com.project.gerenciamento_evento.dto.PagamentoDTO;
 import com.project.gerenciamento_evento.entity.Evento;
 import com.project.gerenciamento_evento.entity.Pagamento;
+import com.project.gerenciamento_evento.entity.User;
 import com.project.gerenciamento_evento.repository.Eventorepository;
 import com.project.gerenciamento_evento.repository.PagamentoRepository;
+import com.project.gerenciamento_evento.repository.userRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class PagamentoService {
 
     private final PagamentoRepository pagamentoRepository;
     private final Eventorepository eventorepository;
-    private final ParticipanteRepository participanteRepository;
+    private final userRepository userRepository;
 
     public List<Pagamento> findAll() {
         return pagamentoRepository.findAll();
@@ -35,7 +37,7 @@ public class PagamentoService {
         Evento evento = eventorepository.findById(dto.eventoId())
                 .orElseThrow(()-> new RuntimeException("Evento não encontrado com o ID: " + dto.eventoId()));
 
-        Participante participante = participanteRepository.findById(dto.participanteId())
+        User participante = userRepository.findById(dto.participanteId())
                 .orElseThrow(()-> new RuntimeException("Participante não encontrado com o ID: " + dto.participanteId()));
 
         Pagamento pagamento = new Pagamento();
